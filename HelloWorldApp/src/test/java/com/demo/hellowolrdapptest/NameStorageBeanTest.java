@@ -10,10 +10,6 @@ import com.demo.helloworldapp.NameStorageBean;
 
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Gary A. Stafford
- */
 public class NameStorageBeanTest {
 
     private final NameStorageBean nameStorageBean = new NameStorageBean();

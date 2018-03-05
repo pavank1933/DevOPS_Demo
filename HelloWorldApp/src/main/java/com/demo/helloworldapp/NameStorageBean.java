@@ -9,8 +9,6 @@ import javax.ejb.Singleton;
 /**
  * Singleton session bean used to store the name parameter for "/helloWorld"
  * resource
- *
- * @author mkuchtiak
  */
 @Singleton
 public class NameStorageBean {
