@@ -23,7 +23,7 @@ public class HelloWorldResource {
     @GET
     @Produces("text/html")
     public String getXml() {
-        return "<html><body><h1>Hello World Demo"+nameStorage.getName()+"!</h1></body></html>";
+        return "<html><body><h1>Hello World Demo"+"!</h1></body></html>";
     }
 
     /**
