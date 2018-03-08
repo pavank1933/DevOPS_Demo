@@ -62,7 +62,7 @@
                             <filtering>true</filtering>
                             <targetpath>WEB-INF</targetpath>
                             <includes>
-                                <include>**/glassfish-web.xml</include>
+                                <include>**/web.xml</include>
                             </includes>
                         </resource>
                     </webresources>
@@ -93,40 +93,23 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>properties-maven-plugin</artifactId>
-                <version>1.0-alpha-2</version>
-                <configuration>
-                    <files>
-                        <file>${basedir}/properties/${glassfish.properties.file.argument}.properties</file>
-                    </files>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.glassfish.maven.plugin</groupId>
-                <artifactId>maven-glassfish-plugin</artifactId>
-                <version>2.1</version>
-                <configuration>
-                    <glassfishDirectory>${GLASSFISH_HOME}</glassfishDirectory>
-                    <user>${glassfish.user}</user>
-                    <passwordFile>${basedir}/passwords/${glassfish.pwdfile}</passwordFile>
-                    <echo>true</echo>
-                    <debug>true</debug>
-                    <terse>true</terse>
-                    <domain>
-                        <name>${glassfish.domain}</name>
-                        <host>${glassfish.host}</host>
-                        <adminPort>${glassfish.adminport}</adminPort>
-                    </domain>
-                    <components>
-                        <component>
-                            <name>${project.artifactId}</name>
-                            <artifact>${project.build.directory}/${project.build.finalName}.war</artifact>
+ 	<plugin>
+    <groupId>org.apache.tomcat.maven</groupId>
+    <artifactId>tomcat7-maven-plugin</artifactId>
+    <version>2.2</version>
+    <configuration>
+        <url>http://localhost:8090/manager/text</url>
+        <username>admin</username>
+        <password>admin</password>
+         <components>
+                   <component>
+                      <name>${project.artifactId}</name>
+                      <artifact>${project.build.directory}/${project.build.finalName}.war</artifact>
                         </component>
                     </components>
-                </configuration>  
-            </plugin>
+
+    </configuration>
+</plugin>
         </plugins>
     </build>
 
